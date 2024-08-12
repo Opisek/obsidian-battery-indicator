@@ -1,8 +1,16 @@
-/*
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3em;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+.hidden {
+    display: none;
+}
 
-If your plugin does not need CSS, delete this file.
-
-*/
+.iconSpan {
+    height: 16px;
+}

@@ -4,7 +4,14 @@ import { startPolling } from 'src/polling';
 import { initializeSettings } from 'src/settings';
 
 const DEFAULT_SETTINGS: BatteryIndicatorSettings = {
-	mySetting: 'default'
+	thresholds: [
+		0.2,
+		0.4,
+		0.6,
+		0.8
+	],
+	showPercentage: true,
+	separateChargingIcon: false
 }
 
 export default class BatteryIndicatorPlugin extends Plugin {
@@ -16,7 +23,7 @@ export default class BatteryIndicatorPlugin extends Plugin {
 
 		const indicatorCallback = initializeIndicator(this);
 		this.stopPolling = startPolling(indicatorCallback);
-		initializeSettings(this.app, this);
+		initializeSettings(this.app, this, indicatorCallback);
 	}
 
 	onunload() {

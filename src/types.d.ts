@@ -1,5 +1,7 @@
 interface BatteryIndicatorSettings {
-	mySetting: string;
+	thresholds: number[];
+    showPercentage: boolean;
+    separateChargingIcon: boolean;
 }
 
 type BatteryStatus = {
@@ -7,5 +9,5 @@ type BatteryStatus = {
     level: number;
 };
 
-type IndicatorCallback = (status: BatteryStatus) => void;
+type IndicatorCallback = (status?: BatteryStatus) => void;
 type VoidCallback = () => void;

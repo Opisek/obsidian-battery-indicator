@@ -7,7 +7,7 @@ const LEVEL_ICONS = [
     "battery",
     "battery-low",
     "battery-medium",
-    "battery-high"
+    "battery-full"
 ]
 const CHARGING_ICON = "battery-charging"
 const CHARGING_ICON_ALT = "plug-zap"

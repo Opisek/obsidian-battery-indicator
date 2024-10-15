@@ -12,11 +12,12 @@ class BatteryIndicatorPolling {
         //this.waittime = MINIMUM_WAITTIME;
         this.waittime = 5000;
 
-        (async () => {
-            this.batteryStatus = await getCurrentBatteryStatus();
-            callback(this.batteryStatus);
-            this.schedulePoll();
-        })();
+        this.poll();
+        //(async () => {
+        //    this.batteryStatus = await getCurrentBatteryStatus();
+        //    callback(this.batteryStatus);
+        //    this.schedulePoll();
+        //})();
     }
 
     stopPolling() {
@@ -28,7 +29,7 @@ class BatteryIndicatorPolling {
     }
 
     poll = async () => {
-        const previousBatteryStatus = this.batteryStatus;
+        //const previousBatteryStatus = this.batteryStatus;
         this.batteryStatus = await getCurrentBatteryStatus();
         this.callback(this.batteryStatus);
 
@@ -45,7 +46,6 @@ class BatteryIndicatorPolling {
 }
 
 export function startPolling(callback: IndicatorCallback): VoidCallback {
-    console.log(callback);
     const poller = new BatteryIndicatorPolling(callback);
     return poller.stopPolling;
 }

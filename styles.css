@@ -14,3 +14,7 @@
 .iconSpan {
     height: 16px;
 }
+
+.plugin-battery-indicator {
+  padding: 0;
+}
